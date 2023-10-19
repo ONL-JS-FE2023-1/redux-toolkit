@@ -5,13 +5,14 @@ import { setLang } from '../../store/slices/langSlice';
 import CONSTANTS from '../../constants';
 const {
     LANGUAGE: {
-        EN_US, UA_UA, AR_AR, HE_HE
-    }
+        EN_US, UA_UA
+    }, 
+    LANGUAGE
 } = CONSTANTS;
 
 const translations = new Map([
     [
-        EN_US,
+        EN_US.VALUE,
         {
             countText: 'Count',
             stepText: 'Step',
@@ -20,7 +21,7 @@ const translations = new Map([
         }
     ],
     [
-        UA_UA,
+        UA_UA.VALUE,
         {
             countText: 'Стан лічильника',
             stepText: 'Крок',
@@ -38,8 +39,9 @@ const Counter = (props) => {
     return (
         <div>
             <select value={language} onChange={({ target: { value } }) => setLang(value) }>
-                <option value={EN_US}>English</option>
-                <option value={UA_UA}>Українська</option>
+                {Object.values(LANGUAGE).map((langObj) => (
+                    <option key={langObj.VALUE} value={langObj.VALUE}>{langObj.OPTION_TEXT}</option>
+                ))}
             </select>
             <p>{countText}: {count}</p>
             <label>
