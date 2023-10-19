@@ -8,6 +8,10 @@ const Counter = (props) => {
     return (
         <div>
             <p>Count: {count}</p>
+            <label>
+                Step:
+                <input type="number" value={step} />
+            </label>
             <p>Step: {step}</p>
             <button onClick={() => dispatch(increment()) }>Increment</button>
             <button onClick={() => dispatch(decrement()) }>Decrement</button>
