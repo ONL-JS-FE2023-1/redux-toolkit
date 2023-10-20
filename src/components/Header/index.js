@@ -1,9 +1,22 @@
 import React from 'react';
 import styles from './Header.module.scss';
+import cx from 'classnames';
+import { connect } from 'react-redux';
+import CONSTANTS from '../../constants';
+import { setTheme } from '../../store/slices/themeSlice';
 
-const Header = (props) => {
+
+const { THEMES } = CONSTANTS;
+
+const Header = ({ theme, setTheme, language }) => {
+    
+    const className = cx(styles.header, {
+        [styles.darkTheme]: theme === THEMES.DARK,
+        [styles.lightTheme]: theme === THEMES.LIGHT
+    })
+
     return (
-        <header className={styles.header}>
+        <header className={className}>
             <h1>My Site</h1>
             <nav>
                 <ul className={styles.navList}>
@@ -13,10 +26,23 @@ const Header = (props) => {
                 </ul>
             </nav>
             <div>
-                <button>Switch theme</button>
+                <button onClick={() => setTheme()}>Switch theme</button>
             </div>
         </header>
     );
 }
 
-export default Header;
+const mStP = (state) => {
+    return {
+        theme: state.theme,
+        language: state.lang
+    }
+}
+
+const mDtP = (dispatch) => {
+    return {
+        setTheme: () => dispatch(setTheme())
+    }
+}
+
+export default connect(mStP, mDtP)(Header);

@@ -39,7 +39,7 @@ const Counter = (props) => {
     const translation = translations.get(language);
     const { countText, stepText, incrementText, decrementText } = translation;
     
-    console.log(props);
+    //console.log(props);
 
     const className = cx({
         [styles.darkTheme]: theme === THEMES.DARK,
