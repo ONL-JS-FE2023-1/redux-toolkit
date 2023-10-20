@@ -1,0 +1,16 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.navList {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    &Item {
+        margin: 0 10px;
+        min-width: 50px;
+    }
+}
