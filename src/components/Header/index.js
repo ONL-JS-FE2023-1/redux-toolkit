@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Header.module.scss';
 import cx from 'classnames';
-import { connect, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import CONSTANTS from '../../constants';
 import { setTheme } from '../../store/slices/themeSlice';
 
@@ -10,6 +10,7 @@ const { THEMES } = CONSTANTS;
 
 const Header = (props) => {
     const theme = useSelector((state) => state.theme);
+    const dispatch = useDispatch();
 
     
     const className = cx(styles.header, {
@@ -28,7 +29,7 @@ const Header = (props) => {
                 </ul>
             </nav>
             <div>
-                <button onClick={() => setTheme()}>Switch theme</button>
+                <button onClick={() => dispatch(setTheme())}>Switch theme</button>
             </div>
         </header>
     );
