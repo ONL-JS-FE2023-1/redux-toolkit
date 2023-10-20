@@ -10,6 +10,10 @@ const CONSTANTS = {
         }
         // AR_AR: 'AR_AR',
         // HE_HE: 'HE_HE'
+    },
+    THEMES: {
+        DARK: 'DARK',
+        LIGHT: 'LIGHT'
     }
 }
 
