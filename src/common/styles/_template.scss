@@ -1,0 +1,14 @@
+$darkBg: goldenrod;
+$darkColor: white;
+$lightBg: white;
+$lightColor: black;
+
+%darkTheme {
+    background-color: $darkBg;
+    color: $darkColor;
+}
+
+%lightTheme {
+    background-color: $lightBg;
+    color: $lightColor;
+}
