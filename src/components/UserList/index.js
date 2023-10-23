@@ -14,7 +14,7 @@ const UserList = (props) => {
         <section>
             {isLoading && <div>Loading</div>}
             {error && <div>Error</div>}
-            {users.length > 0 && users.map((u) => <article>{JSON.stringify(u)}</article>)}
+            {users.length > 0 && users.map((u) => <article key={u.id}>{JSON.stringify(u)}</article>)}
         </section>
     );
 }
