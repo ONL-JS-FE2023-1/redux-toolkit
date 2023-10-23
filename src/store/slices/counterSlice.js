@@ -10,10 +10,16 @@ const counterSlice = createSlice({
     initialState,
     reducers: {
         increment: (state, action) => {
-            state.count += state.step;
+            return {
+                ...state,
+                count: state.count + state.step
+            }
         },
         decrement: (state, action) => {
-            state.count -= state.step;
+            return {
+                ...state,
+                count: state.count - state.step
+            }
         },
         setStep: (state, action) => {
             state.step = Number(action.payload);
